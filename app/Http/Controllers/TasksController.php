@@ -71,9 +71,14 @@ class TasksController extends Controller
     {
         $task = Task::find($id);
         
+        if (empty($task->id)) {
+            return redirect('/');
+        }
+        else {
         return view('tasks.show', [
             'task' => $task,
              ]);
+        }
     }
 
     /**
