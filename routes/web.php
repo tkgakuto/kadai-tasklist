@@ -13,9 +13,9 @@
     //toppageにアクセスされると、indexを示す
     Route::get('/', 'TasksController@index');
      
-    Route::resource('tasks', 'TasksController');
+    
     //これは登録機能
-    Route::get('signup', 'Auth\RegisterContoller@showRegistrationForm')->name('signup.get');
+    Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
     Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
     
     //これはログイン機能
@@ -26,6 +26,6 @@
     //ユーザ機能
     Route::group(['middleware' => ['auth']], function() {
         Route::resource('users', 'UsersController',['only' => ['index','show']]);
-        Route::resource('tasks', 'TasksController',['only' => ['store', 'destroy']]);
+        Route::resource('tasks', 'TasksController');
     });
     

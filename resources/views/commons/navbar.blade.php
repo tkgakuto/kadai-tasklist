@@ -10,7 +10,7 @@
                     <ul class="navbar-nav mr-auto"></ul>
                     <ul class="navbar-nav">
                         @if (Auth::check())
-                            <li class="nav-item">{!! link_to_route('users.index', 'users',[], ['class'=>'nav-link']) !!}</li>
+                            <li class="nav-item">{!! link_to_route('users.index', 'Mentor',[], ['class'=>'nav-link']) !!}</li>
                             <li class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
                                 <ul class="dropdown-menu dropdown-menu-right">
@@ -21,7 +21,8 @@
                             </li>
                         @else    
                         <li class="nav-item">{!! link_to_route('signup.get', 'Signup', [], ['class' => 'nav-link']) !!}</li>
-                        <li class="nav-item">{!! link_to_route('login.get', 'Login', [], ['class'=> nav-link']) !!}</li>
+                        <li class="nav-item">{!! link_to_route('login', 'Login', [], ['class'=> 'nav-link']) !!}</li>
+                        @endif
                     </ul>
                 </div>
             </nav>

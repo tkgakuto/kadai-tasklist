@@ -8,16 +8,16 @@ class UsersController extends Controller
 {
     public function index()
     {
-        $users = User::orderBy('id', 'desc')->paginate(10);
+        $tasks = \App\Task::orderBy('id', 'desc')->paginate(10);
         
-        return view ('users.index', [
-            'users' => $users,
+        return view ('tasks.index', [
+            'tasks' => $tasks,
             ]);
     }
     
     public function show($id)
     {
-         $user = User::find($id);
+         $user = \App\User::find($id);
          $tasks = $user->tasks()->orderBy('created_at', 'desc')->paginate(10);
          
          $data = [
